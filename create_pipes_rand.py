@@ -150,5 +150,5 @@ ruta = os.getcwd()
 # Generar y mostrar el código
 
 codigo_aleatorio = generar_codigo_aleatorio()
-bpy.ops.wm.save_as_mainfile(filepath=f"{ruta}/pipes/P_{codigo_aleatorio}.blend")
+bpy.ops.wm.save_as_mainfile(filepath=f"./pipes/P_{codigo_aleatorio}.blend")
 

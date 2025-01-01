@@ -86,13 +86,13 @@ def create_rand_text(color_aleatorio):
 
     input_image_texture = nodes.new(type="ShaderNodeTexImage")
     # Cargar la imagen
-    imagen = bpy.data.images.load("/home/alatrizte/Documentos/python/blender_py/smudges_basecolor.png")
+    imagen = bpy.data.images.load("./smudges_basecolor.png")
     input_image_texture.image = imagen
     input_image_texture.location = (-2000, 0)
 
     input_image_bump = nodes.new(type="ShaderNodeTexImage")
     # Imagen de Bump
-    imagen_bump = bpy.data.images.load("/home/alatrizte/Documentos/python/blender_py/bump.jpg")
+    imagen_bump = bpy.data.images.load("./bump.jpg")
     input_image_bump.image = imagen_bump
     input_image_bump.location = (-2000, -400)
 
