@@ -1,0 +1,8 @@
+objects/*.blend
+pipes/*.blend
+renders/*.png
+staffs/*.blend
+.vscode/
+*.blend1
+
+
