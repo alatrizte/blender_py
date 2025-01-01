@@ -1,7 +1,11 @@
 objects/*.blend
+!objects/.gitkeep
 pipes/*.blend
+!pipes/.gitkeep
 renders/*.png
+!renders/.gitkeep
 staffs/*.blend
+!staffs/.gitkeep
 .vscode/
 *.blend1
 
