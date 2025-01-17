@@ -1,5 +1,9 @@
 import bpy
 import os
+# Obtener y imprimir el directorio actual
+directorio_actual = os.getcwd()
+print(f"El archivo se está ejecutando desde: {directorio_actual}")
+
 
 def borrar_coleccion_seleccionada(name_collection):
     # Obtener la colección activa
@@ -22,8 +26,8 @@ def encontrar_blend_sin_png():
     def listar_archivos(directorio, extension):
         return [f for f in os.listdir(directorio) if f.endswith(extension)]
     
-    directorio_blend = './objects'
-    directorio_png = './renders'
+    directorio_blend = f"{directorio_actual}/Documentos/python/blender_py/objects"
+    directorio_png =  f"{directorio_actual}/Documentos/python/blender_py/renders"
 
     # Obtener listas de archivos
     archivos_blend = listar_archivos(directorio_blend, '.blend')
@@ -37,6 +41,7 @@ def encontrar_blend_sin_png():
 
     return blend_sin_png
 
+
 lst_to_render = encontrar_blend_sin_png()
 
 print(lst_to_render)
@@ -44,7 +49,7 @@ print(lst_to_render)
 for f in lst_to_render:
     print(f)
     # Ruta al archivo .blend que contiene la colección
-    ruta_archivo = f"./objects/{f}.blend"
+    ruta_archivo = f"{directorio_actual}/Documentos/python/blender_py/objects/{f}.blend"
 
     # Vincular la colección
     with bpy.data.libraries.load(ruta_archivo, link=True) as (data_from, data_to):
@@ -59,7 +64,7 @@ for f in lst_to_render:
     bpy.context.scene.render.image_settings.file_format = 'PNG'
 
     # Establecer la ruta de salida del render
-    bpy.context.scene.render.filepath = f"./renders/{f}.png"
+    bpy.context.scene.render.filepath = f"{directorio_actual}/Documentos/python/blender_py/renders/{f}.png"
 
     # Ejecutar el render
     bpy.ops.render.render(write_still=True)

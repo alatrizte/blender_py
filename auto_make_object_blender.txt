@@ -1,4 +1,4 @@
 ~/Descargas/blender-4.3.1-linux-x64/blender --background --python ~/Documentos/python/blender_py/create_obj_rand.py
-~/Descargas/blender-4.3.1-linux-x64/blender studio.blend --python make_photo.py
+~/Descargas/blender-4.3.1-linux-x64/blender ~/Documentos/python/blender_py/studio.blend --python ~/Documentos/python/blender_py/make_photo.py
 
 
