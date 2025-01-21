@@ -1,7 +1,8 @@
 import bpy
 import os
 # Obtener y imprimir el directorio actual
-directorio_actual = os.getcwd()
+# directorio_actual = os.getcwd()
+directorio_actual = "/home/alatrizte"
 print(f"El archivo se está ejecutando desde: {directorio_actual}")
 
 

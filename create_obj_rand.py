@@ -13,6 +13,7 @@ PALETA = {
         "0D": (0.7098, 0.1725, 0, 1),
         "0E": (0.549, 0, 0.0196, 1),
     }
+DIRECTORY = os.getcwd() + "/Documentos/python/blender_py"
 
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False, confirm=False)
@@ -86,13 +87,13 @@ def create_rand_text(color_aleatorio):
 
     input_image_texture = nodes.new(type="ShaderNodeTexImage")
     # Cargar la imagen
-    imagen = bpy.data.images.load("./smudges_basecolor.png")
+    imagen = bpy.data.images.load(f"{DIRECTORY}/textures/smudges_basecolor.png")
     input_image_texture.image = imagen
     input_image_texture.location = (-2000, 0)
 
     input_image_bump = nodes.new(type="ShaderNodeTexImage")
     # Imagen de Bump
-    imagen_bump = bpy.data.images.load("./bump.jpg")
+    imagen_bump = bpy.data.images.load(f"{DIRECTORY}/textures/bump.jpg")
     input_image_bump.image = imagen_bump
     input_image_bump.location = (-2000, -400)
 
@@ -332,8 +333,8 @@ def add_obj_to_scene(path, name):
             bpy.context.collection.objects.link(obj)
 
 ########## Añadir tuberias aleatorias 
-ruta = os.getcwd()
-path_to_pipes = f"{ruta}/pipes"
+
+path_to_pipes = f"{DIRECTORY}/pipes"
 archivos_blend = [f for f in os.listdir(path_to_pipes) if f.endswith('.blend')]
 archivo_seleccionado = random.choice(archivos_blend)
 pipes = f"{path_to_pipes}/{archivo_seleccionado}"
@@ -365,7 +366,7 @@ for i in range (0, 2):
     bpy.ops.transform.rotate(value=random_grads, orient_axis=random_axis)
 
 
-path_to_staffs = f"{ruta}/staffs"
+path_to_staffs = f"{DIRECTORY}/staffs"
 # Listar archivos .blend en la carpeta
 archivos_blend = [f for f in os.listdir(path_to_staffs) if f.endswith('.blend')]
 archivo_seleccionado = random.choice(archivos_blend)
@@ -398,7 +399,7 @@ if coleccion:
 else:
     print(f"No se encontró la colección '{nombre_actual}'.")
 
-bpy.ops.wm.save_as_mainfile(filepath=f"{ruta}/objects/{codigo_aleatorio}.blend")
+bpy.ops.wm.save_as_mainfile(filepath=f"{DIRECTORY}/objects/{codigo_aleatorio}.blend")
 
 
 
